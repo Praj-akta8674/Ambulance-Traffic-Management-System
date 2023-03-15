@@ -1,0 +1,49 @@
+#define sensor1 A0   // Pin for sensor1
+#define sensor2 A1   // Pin for sensor2
+#define sensor3 A2   // Pin for sensor3
+#define sensor4 A3   // Pin for sensor4
+
+int red1 = 9;   // Pin for the red LED for lane1
+int yellow1 = 10;  // Pin for the yellow LED for lane1
+int green1 = 11;  // Pin for the green LED for lane1
+int red2 = 12;  // Pin for the red LED for lane2
+int yellow2 = 13;  // Pin for the yellow LED for lane2
+int green2 = 8;  // Pin for the green LED for lane2
+int red3 = 3;  // Pin for the red LED for lane3
+int yellow3 = 4;  // Pin for the yellow LED for lane3
+int green3 = 5;  // Pin for the green LED for lane3
+int red4 = 6;  // Pin for the red LED for lane4
+int yellow4 = 7;  // Pin for the yellow LED for lane4
+int green4 = 2;  // Pin for the green LED for lane4
+
+int sensorValue1 = 0;  // Value from sensor1
+int sensorValue2 = 0;  // Value from sensor2
+int sensorValue3 = 0;  // Value from sensor3
+int sensorValue4 = 0;  // Value from sensor4
+
+void setup() {
+  pinMode(red1, OUTPUT);   // Set the red LED pin for lane1 as an output
+  pinMode(yellow1, OUTPUT);  // Set the yellow LED pin for lane1 as an output
+  pinMode(green1, OUTPUT);  // Set the green LED pin for lane1 as an output
+  pinMode(red2, OUTPUT);   // Set the red LED pin for lane2 as an output
+  pinMode(yellow2, OUTPUT);  // Set the yellow LED pin for lane2 as an output
+  pinMode(green2, OUTPUT);  // Set the green LED pin for lane2 as an output
+  pinMode(red3, OUTPUT);   // Set the red LED pin for lane3 as an output
+  pinMode(yellow3, OUTPUT);  // Set the yellow LED pin for lane3 as an output
+  pinMode(green3, OUTPUT);  // Set the green LED pin for lane3 as an output
+  pinMode(red4, OUTPUT);   // Set the red LED pin for lane4 as an output
+  pinMode(yellow4, OUTPUT);  // Set the yellow LED pin for lane4 as an output
+  pinMode(green4, OUTPUT);  // Set the green LED pin for lane4 as an output
+  pinMode(sensor1, INPUT);  // Set the sensor1 pin as an input
+  pinMode(sensor2, INPUT);  // Set the sensor2 pin as an input
+  pinMode(sensor3, INPUT);  // Set the sensor3 pin as an input
+  pinMode(sensor4, INPUT);  // Set the sensor4 pin as an input
+}
+
+void loop() {
+  sensorValue1 = analogRead(sensor1);  // Read the sensor1 value
+  sensorValue2 = analogRead(sensor2);  // Read the sensor2 value
+  sensorValue3 = analogRead(sensor3);  // Read the sensor3 value
+  sensorValue4 = analogRead(sensor4);  // Read the sensor4 value
+
+}// If lane1
