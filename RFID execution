@@ -1,0 +1,41 @@
+#include <SoftwareSerial.h> // include the software serial library
+
+#define RX_PIN 2 // define the RX pin for RFID reader
+#define TX_PIN 3 // define the TX pin for RFID reader
+
+SoftwareSerial RFIDserial(RX_PIN, TX_PIN); // create a new instance of software serial
+
+int ledPin = 13; // define the LED pin
+int piezoPin = 8; // define the piezo electric sensor pin
+
+void setup() {
+  pinMode(ledPin, OUTPUT); // set the LED pin as an output
+  pinMode(piezoPin, INPUT); // set the piezo electric sensor pin as an input
+
+  Serial.begin(9600); // initialize the serial communication
+  RFIDserial.begin(9600); // initialize the software serial communication for RFID reader
+}
+
+void loop() {
+  if (RFIDserial.available() > 0) { // check if there is data available from the RFID reader
+    String rfidData = ""; // create a string variable to store the RFID data
+
+    while (RFIDserial.available() > 0) {
+      char c = RFIDserial.read(); // read the RFID data character by character
+      rfidData += c; // append the character to the RFID data string
+      delay(10);
+    }
+
+    if (rfidData == "1234567890") { // check if the RFID data matches the pre-defined ID for the ambulance
+      digitalWrite(ledPin, HIGH); // turn on the LED to indicate the presence of the ambulance
+
+      int piezoValue = analogRead(piezoPin); // read the value from the piezo electric sensor
+      if (piezoValue > 100) { // check if there is a high vibration detected by the sensor
+        Serial.println("Ambulance detected!"); // print a message to the serial monitor
+        delay(5000); // wait for 5 seconds
+      }
+
+      digitalWrite(ledPin, LOW); // turn off the LED
+    }
+  }
+}
