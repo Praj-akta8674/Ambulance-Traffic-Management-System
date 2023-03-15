@@ -1,0 +1,28 @@
+int redLED = 9;   // Pin for the red LED
+int yellowLED = 10;  // Pin for the yellow LED
+int greenLED = 11;  // Pin for the green LED
+
+void setup() {
+  pinMode(redLED, OUTPUT);   // Set the red LED pin as an output
+  pinMode(yellowLED, OUTPUT);  // Set the yellow LED pin as an output
+  pinMode(greenLED, OUTPUT);  // Set the green LED pin as an output
+}
+
+void loop() {
+  digitalWrite(redLED, HIGH);   // Turn on the red LED
+  delay(5000);   // Wait for 5 seconds
+  
+  digitalWrite(redLED, LOW);   // Turn off the red LED
+  digitalWrite(yellowLED, HIGH);  // Turn on the yellow LED
+  delay(2000);   // Wait for 2 seconds
+  
+  digitalWrite(yellowLED, LOW);  // Turn off the yellow LED
+  digitalWrite(greenLED, HIGH);   // Turn on the green LED
+  delay(5000);   // Wait for 5 seconds
+  
+  digitalWrite(greenLED, LOW);   // Turn off the green LED
+  digitalWrite(yellowLED, HIGH);  // Turn on the yellow LED
+  delay(2000);   // Wait for 2 seconds
+  
+  digitalWrite(yellowLED, LOW);  // Turn off the yellow LED
+}
